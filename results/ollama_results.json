@@ -1,0 +1,21 @@
+{
+  "agent": "Ollama path (llama3.2:1b, temperature 0, JSON tool-choice format)",
+  "status": "TESTED LIVE, NOT RELIABLE - do not use its numbers as the headline result",
+  "n_tasks_attempted": 2,
+  "task_success_rate": 0.0,
+  "tasks": [
+    {
+      "question": "What is 15 * 4 + 20?",
+      "outcome": "Model called calculator correctly twice (result 80), then kept calling tools instead of stopping, then emitted unparseable JSON with an extra closing brace. Final answer was an explicit parse failure, not a hallucinated answer.",
+      "steps": 4,
+      "elapsed_seconds": 42.145
+    },
+    {
+      "question": "What is the price of the aurora laptop?",
+      "outcome": "Model emitted unparseable JSON with an extra closing brace on the first tool call. Final answer was an explicit parse failure, not a hallucinated answer.",
+      "steps": 1,
+      "elapsed_seconds": 2.092
+    }
+  ],
+  "finding": "The 1B model's JSON tool-choice output is unreliable for this format (extra braces, failure to stop after a correct tool result). The safety property held - failures surfaced as explicit failures - but task success was 0/2, so the measured headline result remains the deterministic rule-based baseline. A structured-output / tool-calling format or a larger model would be needed before claiming an LLM-agent result."
+}

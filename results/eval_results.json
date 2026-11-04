@@ -1,0 +1,224 @@
+{
+  "agent": "rule-based baseline (deterministic, clearly labelled)",
+  "n_tasks": 12,
+  "tool_choice_accuracy": 1.0,
+  "task_success_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "failure_recovery_rate": 1.0,
+  "n_tasks_with_first_tool_error": 3,
+  "mean_steps": 1.33,
+  "rows": [
+    {
+      "id": "calc-1",
+      "category": "calculator",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "calculator"
+      ],
+      "expected_tool_sequence": [
+        "calculator"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "The result is 80."
+    },
+    {
+      "id": "calc-2",
+      "category": "calculator",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "calculator"
+      ],
+      "expected_tool_sequence": [
+        "calculator"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "The result is 20.0."
+    },
+    {
+      "id": "calc-recovery-words",
+      "category": "failure-recovery",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "calculator",
+        "calculator"
+      ],
+      "expected_tool_sequence": [
+        "calculator",
+        "calculator"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": true,
+      "recovered": true,
+      "n_steps": 2,
+      "final_answer": "The result is 63."
+    },
+    {
+      "id": "calc-recovery-malformed",
+      "category": "failure-recovery",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "calculator",
+        "calculator"
+      ],
+      "expected_tool_sequence": [
+        "calculator",
+        "calculator"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": true,
+      "recovered": true,
+      "n_steps": 2,
+      "final_answer": "The result is 70."
+    },
+    {
+      "id": "lookup-1",
+      "category": "lookup",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "lookup_record"
+      ],
+      "expected_tool_sequence": [
+        "lookup_record"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "aurora-laptop: 899 (15-inch laptop with 16 GB RAM)."
+    },
+    {
+      "id": "lookup-2",
+      "category": "lookup",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "lookup_record"
+      ],
+      "expected_tool_sequence": [
+        "lookup_record"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "remote-stipend: 75 (Monthly remote-work stipend in USD)."
+    },
+    {
+      "id": "lookup-not-found",
+      "category": "no-hallucination",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "search_documents"
+      ],
+      "expected_tool_sequence": [
+        "search_documents"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": true,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "No local document matched that question."
+    },
+    {
+      "id": "doc-1",
+      "category": "document-search",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "search_documents"
+      ],
+      "expected_tool_sequence": [
+        "search_documents"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "From refund_policy.md: # Refund policy Northwind Labs offers a 30-day refund window for unopened products. Opened products may be exchanged within 14 days. Refunds are issued to the original payment method within 5 business days of approval."
+    },
+    {
+      "id": "doc-2",
+      "category": "document-search",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "search_documents"
+      ],
+      "expected_tool_sequence": [
+        "search_documents"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "From security_policy.md: # Security policy All employees must use two-factor authentication. Passwords must be at least 12 characters long. Company laptops must be encrypted and reported within 24 hours if lost or stolen."
+    },
+    {
+      "id": "doc-3",
+      "category": "document-search",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "search_documents"
+      ],
+      "expected_tool_sequence": [
+        "search_documents"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "From founding.md: # Company founding Northwind Labs was founded in 2019 in Tampa, Florida. Its first product was a local inventory tracker for small retailers. The company moved to a remote-first model in 2021 and now employs staff across the United States."
+    },
+    {
+      "id": "date-1",
+      "category": "date",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "get_date_time"
+      ],
+      "expected_tool_sequence": [
+        "get_date_time"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 1,
+      "final_answer": "Today's date (UTC) is 2026-11-04."
+    },
+    {
+      "id": "multi-1",
+      "category": "multi-step",
+      "tool_choice_correct": true,
+      "tool_sequence": [
+        "lookup_record",
+        "lookup_record",
+        "calculator"
+      ],
+      "expected_tool_sequence": [
+        "lookup_record",
+        "lookup_record",
+        "calculator"
+      ],
+      "task_success": true,
+      "hallucinated": false,
+      "first_tool_errored": false,
+      "recovered": false,
+      "n_steps": 3,
+      "final_answer": "The total is 1048 (899 + 149)."
+    }
+  ]
+}

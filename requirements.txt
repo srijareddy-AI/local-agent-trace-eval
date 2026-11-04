@@ -1,0 +1,3 @@
+# Runtime: Python 3.10+ standard library only.
+# Demo UI (optional, not needed for the CLI or evaluation):
+streamlit>=1.35
